@@ -12,6 +12,7 @@ namespace ConsoleApplication1
         {
             int asd; int adsd;
             int asdsad = 23;
+            int asd;
         }
     }
 }
