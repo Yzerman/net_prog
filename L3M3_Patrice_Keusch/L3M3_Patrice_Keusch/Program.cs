@@ -4,15 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleApplication1
+namespace ConsoleApplication3
 {
     class Program
     {
         static void Main(string[] args)
         {
-            int asd; int adsd;
-            int asdsad = 23;
-            int asd;
         }
     }
 }

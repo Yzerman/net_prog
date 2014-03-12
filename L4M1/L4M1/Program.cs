@@ -4,15 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleApplication1
+namespace L4M1
 {
     class Program
     {
         static void Main(string[] args)
         {
-            int asd; int adsd;
-            int asdsad = 23;
-            int asd;
+
+            Console.WriteLine("Excpetion Test");
+            new Math().Div(1, 0);
         }
     }
 }

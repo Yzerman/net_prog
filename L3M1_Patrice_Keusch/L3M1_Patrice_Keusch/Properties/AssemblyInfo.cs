@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // Allgemeine Informationen über eine Assembly werden über die folgenden 
 // Attribute gesteuert. Ändern Sie diese Attributwerte, um die Informationen zu ändern,
 // die mit einer Assembly verknüpft sind.
-[assembly: AssemblyTitle("ConsoleApplication3")]
+[assembly: AssemblyTitle("L3M1_Patrice_Keusch")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("ConsoleApplication3")]
+[assembly: AssemblyProduct("L3M1_Patrice_Keusch")]
 [assembly: AssemblyCopyright("Copyright ©  2014")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // Die folgende GUID bestimmt die ID der Typbibliothek, wenn dieses Projekt für COM verfügbar gemacht wird
-[assembly: Guid("7c982821-3548-4a2d-9885-c463078ce875")]
+[assembly: Guid("411d3820-2e81-482d-a038-fbde823e5d89")]
 
 // Versionsinformationen für eine Assembly bestehen aus den folgenden vier Werten:
 //
