@@ -7,8 +7,25 @@ using System.Threading.Tasks;
 namespace AutoProps
 {
     #region Car class with automatic properties
-    class Car
+    class Car : IDisposable
     {
+
+        ~Car()
+        {
+            PetName = null;
+            Speed = 0;
+            Color = null;
+            
+        }
+
+        public void Dispose()
+        {
+            // Keine Objektvariablen vorhanden
+            PetName = null;
+            Speed = 0;
+            Color = null;
+
+        }
         // Automatic properties!
         public string PetName { get; set; }
         public int Speed { get; set; }
@@ -24,8 +41,23 @@ namespace AutoProps
     #endregion
 
     #region Garage class
-    class Garage
+    class Garage : IDisposable
     {
+
+        ~Garage()
+        {
+            // cleanup Code
+            MyAuto = null;
+            NumberOfCars = 0;
+
+        }
+
+        public void Dispose()
+        {
+            MyAuto = null;
+            NumberOfCars = 0;
+        }
+
         // The hidden int backing field is set to zero!
         public int NumberOfCars { get; set; }
 
@@ -52,7 +84,7 @@ namespace AutoProps
         static void Main( string[] args )
         {
             Console.WriteLine("***** Fun with Automatic Properties *****\n");
-
+            
             // Make a car.
             Car c = new Car();
             c.PetName = "Frank";
@@ -61,12 +93,16 @@ namespace AutoProps
             c.DisplayStats();
 
             // Put car in the garage.
-            Garage g = new Garage();
+            using (Garage g = new Garage())
+            {
+
+            
             g.MyAuto = c;
             Console.WriteLine("Number of Cars in garage: {0}", g.NumberOfCars);
             Console.WriteLine("Your car is named: {0}", g.MyAuto.PetName);
 
             Console.ReadLine();
+            }
         }
     }
 }
