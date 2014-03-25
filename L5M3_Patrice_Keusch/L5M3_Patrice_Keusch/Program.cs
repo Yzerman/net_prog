@@ -16,6 +16,8 @@ namespace L5M3_Patrice_Keusch
                                     SearchOption.AllDirectories)
                                 where f.Name.StartsWith("a")
                                 select new { MyName = f.Name, MyCreationTime = f.CreationTime, MyLength = f.Length };
+            
+            
             foreach (var i in selectedFiles)
             {
                 Console.WriteLine("{0} {1} {2}", i.MyName, i.MyCreationTime, i.MyLength);
