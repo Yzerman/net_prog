@@ -39,6 +39,17 @@ namespace AsyncCallbackDelegate
             var res = System.Threading.Tasks.Task.Factory.StartNew(() => Add(5, 6));
             Console.WriteLine(res.Result);
             Console.ReadLine();
+
+            // Aufgabe 3
+
+           Console.WriteLine("Start Aufgabe 3");
+           System.Threading.Tasks.Parallel.For(0,3, testc =>{
+               
+               Add(5, 6);
+           });
+           Console.WriteLine("End Aufgabe 3");
+           Console.ReadLine();
+
         }
 
         #region Target for AsyncCallback delegate
