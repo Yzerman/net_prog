@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Diagnostics;
 
-namespace L7M1_Patrice_Keusch
+namespace L7U1
 {
     class Program
     {
@@ -45,7 +45,7 @@ namespace L7M1_Patrice_Keusch
                 }
             }
 
-          
+
 
             Console.ReadLine();
         }
