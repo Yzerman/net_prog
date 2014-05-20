@@ -1,0 +1,66 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WcfPhoneAppTest1", "WcfPhoneAppTest1\WcfPhoneAppTest1.csproj", "{F1F35AE2-ADDB-425C-8D4F-8565CFF3788B}"
+	ProjectSection(ProjectDependencies) = postProject
+		{9005F2B8-6637-4850-B49C-B71B7B8D10D2} = {9005F2B8-6637-4850-B49C-B71B7B8D10D2}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WcfPhoneTest1", "WcfPhoneTest1\WcfPhoneTest1.csproj", "{9005F2B8-6637-4850-B49C-B71B7B8D10D2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "wcfConsoleTest", "wcfConsoleTest\wcfConsoleTest.csproj", "{FA63F085-FC4E-44CD-9442-67411F4E89E9}"
+	ProjectSection(ProjectDependencies) = postProject
+		{9005F2B8-6637-4850-B49C-B71B7B8D10D2} = {9005F2B8-6637-4850-B49C-B71B7B8D10D2}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|ARM = Debug|ARM
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|ARM = Release|ARM
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F1F35AE2-ADDB-425C-8D4F-8565CFF3788B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1F35AE2-ADDB-425C-8D4F-8565CFF3788B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1F35AE2-ADDB-425C-8D4F-8565CFF3788B}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{F1F35AE2-ADDB-425C-8D4F-8565CFF3788B}.Debug|ARM.ActiveCfg = Debug|ARM
+		{F1F35AE2-ADDB-425C-8D4F-8565CFF3788B}.Debug|ARM.Build.0 = Debug|ARM
+		{F1F35AE2-ADDB-425C-8D4F-8565CFF3788B}.Debug|ARM.Deploy.0 = Debug|ARM
+		{F1F35AE2-ADDB-425C-8D4F-8565CFF3788B}.Debug|x86.ActiveCfg = Debug|x86
+		{F1F35AE2-ADDB-425C-8D4F-8565CFF3788B}.Debug|x86.Build.0 = Debug|x86
+		{F1F35AE2-ADDB-425C-8D4F-8565CFF3788B}.Debug|x86.Deploy.0 = Debug|x86
+		{F1F35AE2-ADDB-425C-8D4F-8565CFF3788B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1F35AE2-ADDB-425C-8D4F-8565CFF3788B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F1F35AE2-ADDB-425C-8D4F-8565CFF3788B}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{F1F35AE2-ADDB-425C-8D4F-8565CFF3788B}.Release|ARM.ActiveCfg = Release|ARM
+		{F1F35AE2-ADDB-425C-8D4F-8565CFF3788B}.Release|ARM.Build.0 = Release|ARM
+		{F1F35AE2-ADDB-425C-8D4F-8565CFF3788B}.Release|ARM.Deploy.0 = Release|ARM
+		{F1F35AE2-ADDB-425C-8D4F-8565CFF3788B}.Release|x86.ActiveCfg = Release|x86
+		{F1F35AE2-ADDB-425C-8D4F-8565CFF3788B}.Release|x86.Build.0 = Release|x86
+		{F1F35AE2-ADDB-425C-8D4F-8565CFF3788B}.Release|x86.Deploy.0 = Release|x86
+		{9005F2B8-6637-4850-B49C-B71B7B8D10D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9005F2B8-6637-4850-B49C-B71B7B8D10D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9005F2B8-6637-4850-B49C-B71B7B8D10D2}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{9005F2B8-6637-4850-B49C-B71B7B8D10D2}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{9005F2B8-6637-4850-B49C-B71B7B8D10D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9005F2B8-6637-4850-B49C-B71B7B8D10D2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9005F2B8-6637-4850-B49C-B71B7B8D10D2}.Release|ARM.ActiveCfg = Release|Any CPU
+		{9005F2B8-6637-4850-B49C-B71B7B8D10D2}.Release|x86.ActiveCfg = Release|Any CPU
+		{FA63F085-FC4E-44CD-9442-67411F4E89E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA63F085-FC4E-44CD-9442-67411F4E89E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA63F085-FC4E-44CD-9442-67411F4E89E9}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{FA63F085-FC4E-44CD-9442-67411F4E89E9}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{FA63F085-FC4E-44CD-9442-67411F4E89E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA63F085-FC4E-44CD-9442-67411F4E89E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FA63F085-FC4E-44CD-9442-67411F4E89E9}.Release|ARM.ActiveCfg = Release|Any CPU
+		{FA63F085-FC4E-44CD-9442-67411F4E89E9}.Release|x86.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
