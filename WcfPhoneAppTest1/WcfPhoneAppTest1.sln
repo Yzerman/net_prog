@@ -15,6 +15,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "wcfConsoleTest", "wcfConsol
 		{9005F2B8-6637-4850-B49C-B71B7B8D10D2} = {9005F2B8-6637-4850-B49C-B71B7B8D10D2}
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PSRemoting_ConsoleProxy", "PSRemoting_ConsoleProxy\PSRemoting_ConsoleProxy.csproj", "{B31D25D0-3C30-4744-AC4C-B20ADE710304}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PSRemoteSvc", "PSRemoteSvc\PSRemoteSvc.csproj", "{551BDA17-A7B3-4480-B9C1-6F2CC7297B03}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -59,6 +63,22 @@ Global
 		{FA63F085-FC4E-44CD-9442-67411F4E89E9}.Release|Any CPU.Build.0 = Release|Any CPU
 		{FA63F085-FC4E-44CD-9442-67411F4E89E9}.Release|ARM.ActiveCfg = Release|Any CPU
 		{FA63F085-FC4E-44CD-9442-67411F4E89E9}.Release|x86.ActiveCfg = Release|Any CPU
+		{B31D25D0-3C30-4744-AC4C-B20ADE710304}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B31D25D0-3C30-4744-AC4C-B20ADE710304}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B31D25D0-3C30-4744-AC4C-B20ADE710304}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{B31D25D0-3C30-4744-AC4C-B20ADE710304}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{B31D25D0-3C30-4744-AC4C-B20ADE710304}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B31D25D0-3C30-4744-AC4C-B20ADE710304}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B31D25D0-3C30-4744-AC4C-B20ADE710304}.Release|ARM.ActiveCfg = Release|Any CPU
+		{B31D25D0-3C30-4744-AC4C-B20ADE710304}.Release|x86.ActiveCfg = Release|Any CPU
+		{551BDA17-A7B3-4480-B9C1-6F2CC7297B03}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{551BDA17-A7B3-4480-B9C1-6F2CC7297B03}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{551BDA17-A7B3-4480-B9C1-6F2CC7297B03}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{551BDA17-A7B3-4480-B9C1-6F2CC7297B03}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{551BDA17-A7B3-4480-B9C1-6F2CC7297B03}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{551BDA17-A7B3-4480-B9C1-6F2CC7297B03}.Release|Any CPU.Build.0 = Release|Any CPU
+		{551BDA17-A7B3-4480-B9C1-6F2CC7297B03}.Release|ARM.ActiveCfg = Release|Any CPU
+		{551BDA17-A7B3-4480-B9C1-6F2CC7297B03}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
