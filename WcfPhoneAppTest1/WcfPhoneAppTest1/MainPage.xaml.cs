@@ -24,10 +24,14 @@ namespace WcfPhoneAppTest1
 
         private void btnSendData_Click(object sender, RoutedEventArgs e)
         {
-            var proxy = new ServiceReference1.Service1Client();
+            var proxy = new ServiceReference1.PSRemotingClient();
             int inputparam = Convert.ToInt32(input.Text);
             proxy.malZweiAsync(inputparam);
             proxy.malZweiCompleted += new EventHandler<ServiceReference1.malZweiCompletedEventArgs>(proxy_malZweiCompleted);
+
+           
+            
+
         }
 
         void proxy_malZweiCompleted(object sender, ServiceReference1.malZweiCompletedEventArgs e)
@@ -38,13 +42,13 @@ namespace WcfPhoneAppTest1
 
         private void btnInvokeCommand_Click(object sender, RoutedEventArgs e)
         {
-            var proxy = new ServiceReference1.Service1Client();
+            var proxy = new ServiceReference1.PSRemotingClient();
             string ps_input = powershell_input.Text;
-            proxy.invokeCommandAsync(ps_input);
-            proxy.invokeCommandCompleted += new EventHandler<ServiceReference1.invokeCommandCompletedEventArgs>(proxy_InvokeCommandCompleted);
+           proxy.invokeCommandAsync(ps_input);
+           proxy.invokeCommandCompleted += new EventHandler<ServiceReference1.invokeCommandCompletedEventArgs>(proxy_InvokeCommandCompleted);
           
         }
-
+        
         void proxy_InvokeCommandCompleted(object sender, ServiceReference1.invokeCommandCompletedEventArgs e)
         {
             string result = e.Result.ToString();

@@ -13,6 +13,25 @@ namespace wcfConsoleTest
         
         static void Main(string[] args)
         {
+
+
+            PowerShell ps = PowerShell.Create();
+
+            string rcommand = "dir";
+            ps.AddScript("cd C:\\");
+                ps.Invoke();
+                 ps.AddScript(rcommand + "| out-string");
+            Collection<PSObject> results = ps.Invoke();
+
+            StringBuilder sb = new StringBuilder();
+
+            foreach (var s in results)
+            {
+                sb.Append(s);
+            }
+            Console.WriteLine(sb.ToString());
+            
+            
             /*
             var proxy = new ServiceReference1.Service1Client();
             int result = proxy.malZwei(2);
@@ -20,24 +39,23 @@ namespace wcfConsoleTest
             Console.ReadLine();
              * */
 
-            PowerShell ps = PowerShell.Create();
             //ps.AddScript("Get-Service WSearch");
             //string rcommand = "dir C:\\";
             //string rcommand = "Get-Service WSearch | Format-Table -Property Name";
-            string rcommand = "Get-Service";
+            //string rcommand = "Get-Service";
             //string rcommand = "hostname";
             //string rcommand = "dir C:\\";
-            ps.AddScript(rcommand +"| out-string");
+           // ps.AddScript(rcommand +"| out-string");
             //ps.AddScript("hostname");
             //ps.AddScript("dir C:\\");
-            Collection<PSObject> results = ps.Invoke();
-            StringBuilder sb = new StringBuilder();
-            
+           // Collection<PSObject> results = ps.Invoke();
+           // StringBuilder sb = new StringBuilder();
+            /*
             foreach (var s in results)
             {
                 sb.Append(s);
             }
-            System.Console.WriteLine(sb.ToString()) ;
+            System.Console.WriteLine(sb.ToString()) ;*/
             /*
             foreach (PSObject item in results)
             {
