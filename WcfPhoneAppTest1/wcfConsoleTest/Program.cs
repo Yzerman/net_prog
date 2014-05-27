@@ -16,12 +16,25 @@ namespace wcfConsoleTest
 
 
             PowerShell ps = PowerShell.Create();
+            string path = "C:\\";
 
-            string rcommand = "dir";
-            ps.AddScript("cd C:\\");
+            string rcommand = "asd";
+            ps.AddScript("cd " + path);
                 ps.Invoke();
                  ps.AddScript(rcommand + "| out-string");
             Collection<PSObject> results = ps.Invoke();
+            //Console.WriteLine(ps.HadErrors);
+
+            Collection<System.Management.Automation.ErrorRecord> results2 = ps.Streams.Error.ReadAll();
+
+            StringBuilder sb2 = new StringBuilder();
+
+            foreach (var s in results2)
+            {
+                sb2.Append(s);
+            }
+
+            Console.WriteLine(sb2.ToString());
 
             StringBuilder sb = new StringBuilder();
 
@@ -29,6 +42,7 @@ namespace wcfConsoleTest
             {
                 sb.Append(s);
             }
+
             Console.WriteLine(sb.ToString());
             
             

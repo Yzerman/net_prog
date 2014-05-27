@@ -45,23 +45,29 @@
             <phone:PivotItem Header="connect" Margin="14,10,10,18">
                 <Grid>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="80*"/>
-                        <RowDefinition Height="80*"/>
-                        <RowDefinition Height="80*"/>
-                        <RowDefinition Height="80*"/>
-                        <RowDefinition Height="80*"/>
-                        <RowDefinition Height="80*"/>
-                        <RowDefinition Height="80*"/>
-                        <RowDefinition Height="80*"/>
+                        <RowDefinition Height="70*"/>
+                        <RowDefinition Height="90*"/>
+                        <RowDefinition Height="70*"/>
+                        <RowDefinition Height="90*"/>
+                        <RowDefinition Height="70*"/>
+                        <RowDefinition Height="70*"/>
+                        <RowDefinition Height="70*"/>
+                        <RowDefinition Height="70*"/>
+                        <RowDefinition Height="70*"/>
+                        <RowDefinition Height="70*"/>
                     </Grid.RowDefinitions>
-                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="75" Width="446" FontSize="35" Margin="10,0,0,0" Text="server"/>
-                    <TextBox x:Name="txtServer" TextWrapping="Wrap" Text="http://" Grid.Row="1"/>
-                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="username" VerticalAlignment="Top" Height="75" Width="446" FontSize="35" Margin="10,66,0,0" Grid.Row="1" Grid.RowSpan="2"/>
-                    <TextBox x:Name="txtUsername" TextWrapping="Wrap" Text="" Grid.Row="2" Margin="0,66,0,10" Grid.RowSpan="2"/>
-                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="password" VerticalAlignment="Top" Height="75" Width="446" FontSize="35" Margin="10,1,0,0" Grid.Row="4"/>
-                    <TextBox x:Name="txtPassword" TextWrapping="Wrap" Text="" Grid.Row="4" Margin="0,66,0,10" Grid.RowSpan="2"/>
-                    <Button x:Name="btnSave" Content="save" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,65,0,0" Grid.Row="5" Grid.RowSpan="2" Height="76" Width="456" FontSize="25" Click="btnSave_Click"/>
-                    <TextBlock x:Name="lblStatus" TextWrapping="Wrap" Text="" FontSize="35" Grid.Row="7" TextAlignment="Center" Foreground="#FF14EE32"/>
+                    <TextBlock x:Name="lblServer" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="66" Width="446" FontSize="35" Margin="10,0,0,0" Text="server"/>
+                    <TextBox x:Name="txtServer" TextWrapping="Wrap" Height="75" VerticalAlignment="Bottom" Grid.RowSpan="2" Margin="0,0,0,5"/>
+                    <TextBlock x:Name="lblPinCode" TextWrapping="Wrap" Text="pincode" FontSize="35" Grid.Row="3" Margin="10,47,-10,18" Grid.RowSpan="2"/>
+                    <PasswordBox x:Name="pboxPassword" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,28,0,0" Grid.Row="4" Width="456" Grid.RowSpan="2"/>
+                    <Button x:Name="btnSave" Content="save" Grid.Row="5" Grid.RowSpan="3" FontSize="25" Click="btnSave_Click" Margin="0,36,0,41"/>
+                    <Button x:Name="btnClear" Content="clear" Grid.Row="6" Grid.RowSpan="3" FontSize="25" Click="btnClear_Click"  Margin="0,41,0,39"/>
+                    <Button x:Name="btnStatus" Content="check status" Grid.Row="7" Grid.RowSpan="3" FontSize="25" Click="btnStatus_Click"  Margin="0,43,0,39"/>
+                    <TextBlock x:Name="lblStatus" Grid.Row="8" TextWrapping="Wrap" Text="" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Grid.RowSpan="2" Margin="11.913,49.992,14.107,0.004" />
+                       
+                
+                    <TextBlock x:Name="lblPort" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="50" Width="446" FontSize="35" Margin="10,50,0,0" Text="port" Grid.Row="1" Grid.RowSpan="2"/>
+                    <TextBox x:Name="txtPort" TextWrapping="Wrap" Height="75" VerticalAlignment="Bottom" Grid.RowSpan="2" Grid.Row="2" Margin="0,0,0,10"/>
                 </Grid>
             </phone:PivotItem>
 
@@ -89,8 +95,11 @@
             </phone:PivotItem>
             <phone:PivotItem x:Name="pivResult" Header="result">
                 <Grid HorizontalAlignment="Left" Height="593" VerticalAlignment="Top" Width="456">
-                    <ScrollViewer HorizontalAlignment="Left" Height="593" VerticalAlignment="Top" Width="446">
-                        <TextBlock x:Name="txtResult" TextWrapping="Wrap" />
+                    <ScrollViewer x:Name="scrvResult" HorizontalAlignment="Left" Height="593" VerticalAlignment="Stretch" Width="446">
+                        <phone:WebBrowser x:Name="wbrowserResult"/>
+                        
+                        <!--<TextBlock x:Name="txtResult" TextWrapping="Wrap" Height="auto" />-->
+                        
                     </ScrollViewer>
                 </Grid>
 
