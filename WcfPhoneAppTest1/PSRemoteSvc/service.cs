@@ -63,10 +63,16 @@ namespace Service
             {
                 
                 PowerShell ps = PowerShell.Create();
+
                 // change directory if set
-                if (!(datainput.remotePath == ""))
+                if (datainput.remotePath != "")
                 {
-                    ps.AddScript(datainput.remotePath);
+                    ps.AddScript("cd " + datainput.remotePath);
+                    ps.Invoke();
+                }
+                else
+                {
+                    ps.AddScript("cd C:\\");
                     ps.Invoke();
                 }
          
@@ -74,16 +80,37 @@ namespace Service
                 ps.AddScript(datainput.command + "| out-string");
                 Collection<PSObject> results = ps.Invoke();
 
-                StringBuilder sb = new StringBuilder();
-
-                foreach (var s in results)
+                if (ps.HadErrors)
                 {
-                    sb.Append(s);
+                    Collection<System.Management.Automation.ErrorRecord> results2 = ps.Streams.Error.ReadAll();
+
+                    StringBuilder sb = new StringBuilder();
+
+                    foreach (var s in results2)
+                    {
+                        sb.Append(s);
+                    }
+
+                    Console.WriteLine(sb.ToString());
+                    dataoutput.psResult = sb.ToString();
+                    dataoutput.statusCode = 1;
+                    return dataoutput;
+                }
+                else
+                {
+                    StringBuilder sb = new StringBuilder();
+
+                    foreach (var s in results)
+                    {
+                        sb.Append(s);
+                    }
+
+                    dataoutput.psResult = sb.ToString();
+                    dataoutput.statusCode = 0;
+                    return dataoutput;
+
                 }
 
-                dataoutput.psResult=sb.ToString();
-                dataoutput.statusCode = 0;
-                return dataoutput;
             }
             else
             {
