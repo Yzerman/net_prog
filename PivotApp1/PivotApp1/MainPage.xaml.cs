@@ -11,6 +11,7 @@ using PivotApp1.Resources;
 using PivotApp1.ServiceReference1;
 using System.IO.IsolatedStorage;
 using System.ServiceModel;
+using System.Windows.Media;
 
 
 
@@ -134,7 +135,10 @@ namespace PivotApp1
             {
                 PSResponse datainput = new PSResponse();
                 datainput.statusCode = e.Result.statusCode;
-                datainput.psResult = e.Result.psResult;
+
+                var data = Convert.FromBase64String(e.Result.psResult);
+                datainput.psResult = System.Text.Encoding.UTF8.GetString(data, 0, data.Length);
+               
                 if (datainput.statusCode == 0 || datainput.statusCode == 1)
                 {
                     // txtResult.Text = "ERROR";
@@ -236,6 +240,7 @@ namespace PivotApp1
                 datainput.psResult = e.Result.psResult;
                 if (datainput.statusCode != 0)
                 {
+                    lblStatus.Foreground = new SolidColorBrush(Colors.Red);
                     switch (datainput.statusCode)
                     {
                         case 101:
@@ -252,7 +257,8 @@ namespace PivotApp1
                 }
                 else
                 {
-                    lblStatus.Text = "Connected";
+                    lblStatus.Foreground = new SolidColorBrush(Colors.Green);
+                    lblStatus.Text = "service available";
                     btnStatus.Content = "check status";
                 }
           
@@ -286,6 +292,45 @@ namespace PivotApp1
             {
                 txtPort.Text = "";
             }
+        }
+
+        private void txtRemotePath_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void btnGetCommands_Click(object sender, RoutedEventArgs e)
+        {
+            txtRemotePath.Text = "C:\\";
+            txtCommand.Text = "Get-Command Get-* | select Name,Module";
+        }
+
+        private void btnClearPath_Click(object sender, RoutedEventArgs e)
+        {
+            txtRemotePath.Text = "";
+        }
+
+        private void btnClearCommand_Click(object sender, RoutedEventArgs e)
+        {
+            txtCommand.Text = "";
+        }
+
+        private void btnSetCommands_Click(object sender, RoutedEventArgs e)
+        {
+            txtRemotePath.Text = "C:\\";
+            txtCommand.Text = "Get-Command Set-* | select Name,Module";
+        }
+
+        private void btnGetAlias_Click(object sender, RoutedEventArgs e)
+        {
+            txtRemotePath.Text = "C:\\";
+            txtCommand.Text = "Get-Alias | select Name";
+        }
+
+        private void btnAddFilter_Click(object sender, RoutedEventArgs e)
+        {
+            string str = txtCommand.Text;
+            txtCommand.Text = str + " | where <column> -eq 'value' | select <column>";
         }
 
     }

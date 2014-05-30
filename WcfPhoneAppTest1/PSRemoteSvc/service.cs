@@ -11,6 +11,7 @@ using System.Configuration.Install;
 using System.Collections.ObjectModel;
 using System.Management.Automation;
 using System.Runtime.Serialization;
+using System.ComponentModel.DataAnnotations;
 
 namespace Service
 {
@@ -77,7 +78,7 @@ namespace Service
                 }
          
                 // invoke command
-                ps.AddScript(datainput.command + "| out-string");
+                ps.AddScript(datainput.command + "| ConvertTo-Html");
                 Collection<PSObject> results = ps.Invoke();
 
                 if (ps.HadErrors)
@@ -91,8 +92,9 @@ namespace Service
                         sb.Append(s);
                     }
 
-                    Console.WriteLine(sb.ToString());
-                    dataoutput.psResult = sb.ToString();
+                    var bytes = Encoding.UTF8.GetBytes(sb.ToString());
+                    dataoutput.psResult = Convert.ToBase64String(bytes);
+                   
                     dataoutput.statusCode = 1;
                     return dataoutput;
                 }
@@ -105,7 +107,9 @@ namespace Service
                         sb.Append(s);
                     }
 
-                    dataoutput.psResult = sb.ToString();
+                    var bytes = Encoding.UTF8.GetBytes(sb.ToString());
+                    dataoutput.psResult = Convert.ToBase64String(bytes);
+            
                     dataoutput.statusCode = 0;
                     return dataoutput;
 

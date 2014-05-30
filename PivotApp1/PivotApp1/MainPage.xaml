@@ -64,8 +64,8 @@
                     <Button x:Name="btnClear" Content="clear" Grid.Row="6" Grid.RowSpan="3" FontSize="25" Click="btnClear_Click"  Margin="0,41,0,39"/>
                     <Button x:Name="btnStatus" Content="check status" Grid.Row="7" Grid.RowSpan="3" FontSize="25" Click="btnStatus_Click"  Margin="0,43,0,39"/>
                     <TextBlock x:Name="lblStatus" Grid.Row="8" TextWrapping="Wrap" Text="" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Grid.RowSpan="2" Margin="11.913,49.992,14.107,0.004" />
-                       
-                
+
+
                     <TextBlock x:Name="lblPort" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="50" Width="446" FontSize="35" Margin="10,50,0,0" Text="port" Grid.Row="1" Grid.RowSpan="2"/>
                     <TextBox x:Name="txtPort" TextWrapping="Wrap" Height="75" VerticalAlignment="Bottom" Grid.RowSpan="2" Grid.Row="2" Margin="0,0,0,10"/>
                 </Grid>
@@ -77,17 +77,25 @@
                     <Grid.RowDefinitions>
                         <RowDefinition Height="90"/>
                         <RowDefinition Height="90"/>
-                        <RowDefinition Height="90"/>
+                        <RowDefinition Height="89"/>
+                        <RowDefinition Height="1"/>
                         <RowDefinition Height="90"/>
                         <RowDefinition Height="90"/>
                         <RowDefinition Height="90*"/>
 
                     </Grid.RowDefinitions>
-                    <TextBlock x:Name="lblCommand" HorizontalAlignment="Left" TextWrapping="Wrap" Text="powershell command" VerticalAlignment="Top" Margin="20,17,0,0" Grid.Row="3" Height="63" Width="436" FontSize="30"/>
-                    <TextBox x:Name="txtCommand" HorizontalAlignment="Left" Height="92" Grid.Row="3" TextWrapping="Wrap" VerticalAlignment="Top" Width="456" Margin="-10,78,0,0" Grid.RowSpan="2"/>
-                    <Button x:Name="btnExecute" Content="execute command" Grid.Row="4" Click="btnExecute_Click" FontSize="30" Margin="-10,71,10,10" Grid.RowSpan="2"/>
-                    <TextBlock x:Name="lblRemotePath" HorizontalAlignment="Left" TextWrapping="Wrap" Text="remote path" VerticalAlignment="Top" Margin="10,20,0,0" Grid.Row="1" Height="63" Width="436" FontSize="30"/>
-                    <TextBox x:Name="txtRemotePath" HorizontalAlignment="Left" Height="92" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="456" Margin="-10,88,0,0" Grid.RowSpan="2"/>
+                    <TextBlock x:Name="lblCommand" HorizontalAlignment="Left" TextWrapping="Wrap" Text="powershell command" VerticalAlignment="Top" Margin="10,29,0,0" Grid.Row="4" Height="63" Width="436" FontSize="30" Grid.RowSpan="2"/>
+                    <TextBox x:Name="txtCommand" HorizontalAlignment="Left" Height="116" Grid.Row="4" TextWrapping="Wrap" VerticalAlignment="Top" Width="456" Grid.RowSpan="3" Margin="0,66,0,0"/>
+                    <Button x:Name="btnExecute" Content="execute command" Grid.Row="5" Click="btnExecute_Click" FontSize="30" Margin="0,85,0,-4" Grid.RowSpan="2"/>
+                    <TextBlock x:Name="lblRemotePath" HorizontalAlignment="Left" TextWrapping="Wrap" Text="remote path" VerticalAlignment="Top" Margin="10,85,0,0" Grid.Row="1" Height="63" Width="436" FontSize="30" Grid.RowSpan="2"/>
+                    <TextBox x:Name="txtRemotePath" HorizontalAlignment="Left" Height="94" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Width="456" Margin="0,25,0,0" Grid.RowSpan="3" TextChanged="txtRemotePath_TextChanged" FontSize="20"/>
+                    <Button x:Name="btnSetCommands" Content="Set-Commands" HorizontalAlignment="Left" VerticalAlignment="Top" Height="75" Width="230" Margin="224,37,0,0" Grid.RowSpan="2" Click="btnSetCommands_Click"/>
+                    <Button x:Name="btnGetCommands" Content="Get-Commands" HorizontalAlignment="Left" VerticalAlignment="Top" Height="75" Width="230" Margin="0,37,0,0" Grid.RowSpan="2" Click="btnGetCommands_Click"/>
+                    <Button x:Name="btnGetAlias" Content="Get-Alias" HorizontalAlignment="Left" VerticalAlignment="Top" Height="75" Width="230" Margin="0,10,0,0" Grid.Row="1" Click="btnGetAlias_Click"/>
+                    <Button x:Name="btnAddFilter" Content="add filter" HorizontalAlignment="Left" VerticalAlignment="Top" Height="75" Width="230" Margin="224,10,0,0" Grid.Row="1" Click="btnAddFilter_Click"/>
+                    <TextBlock x:Name="lblhelper" HorizontalAlignment="Left" TextWrapping="Wrap" Text="helper" VerticalAlignment="Top" Margin="10,0,0,0" Height="63" Width="436" FontSize="30"/>
+                    <Button x:Name="btnClearPath" Content="clear" HorizontalAlignment="Left" VerticalAlignment="Top" Height="58" Width="86" Margin="370,79,0,0" Grid.Row="1" Grid.RowSpan="2" FontSize="15" Click="btnClearPath_Click"/>
+                    <Button x:Name="btnClearCommand" Content="clear" VerticalAlignment="Top" Height="58" Margin="370,29,0,0" Grid.Row="4" FontSize="15" Click="btnClearCommand_Click"/>
 
                 </Grid>
 
@@ -97,9 +105,9 @@
                 <Grid HorizontalAlignment="Left" Height="593" VerticalAlignment="Top" Width="456">
                     <ScrollViewer x:Name="scrvResult" HorizontalAlignment="Left" Height="593" VerticalAlignment="Stretch" Width="446">
                         <phone:WebBrowser x:Name="wbrowserResult"/>
-                        
+
                         <!--<TextBlock x:Name="txtResult" TextWrapping="Wrap" Height="auto" />-->
-                        
+
                     </ScrollViewer>
                 </Grid>
 

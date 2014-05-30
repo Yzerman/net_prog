@@ -18,10 +18,10 @@ namespace wcfConsoleTest
             PowerShell ps = PowerShell.Create();
             string path = "C:\\";
 
-            string rcommand = "asd";
+            string rcommand = "dir";
             ps.AddScript("cd " + path);
                 ps.Invoke();
-                 ps.AddScript(rcommand + "| out-string");
+                ps.AddScript(rcommand + "| ConvertTo-Html");
             Collection<PSObject> results = ps.Invoke();
             //Console.WriteLine(ps.HadErrors);
 
@@ -35,7 +35,7 @@ namespace wcfConsoleTest
             }
 
             Console.WriteLine(sb2.ToString());
-
+            
             StringBuilder sb = new StringBuilder();
 
             foreach (var s in results)
@@ -43,7 +43,15 @@ namespace wcfConsoleTest
                 sb.Append(s);
             }
 
-            Console.WriteLine(sb.ToString());
+            var bytes = Encoding.UTF8.GetBytes(sb.ToString());
+            var base64 = Convert.ToBase64String(bytes);
+            //Console.WriteLine(base64);
+
+            var data = Convert.FromBase64String(base64);
+            var str = Encoding.UTF8.GetString(data);
+            Console.WriteLine(str);
+
+            //Console.WriteLine(sb.ToString());
             
             
             /*
