@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Management.Automation;
 using System.Collections.ObjectModel;
+using System.IO;
 
 namespace wcfConsoleTest
 {
@@ -16,7 +17,10 @@ namespace wcfConsoleTest
 
 
             PowerShell ps = PowerShell.Create();
-            string path = "C:\\";
+            string path = "c:\\";
+            //string strFullpath = @"C:\Data\IFiles";
+            Console.WriteLine(Directory.Exists(path));
+            
 
             string rcommand = "dir";
             ps.AddScript("cd " + path);

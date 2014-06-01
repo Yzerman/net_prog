@@ -16,32 +16,11 @@
     <phone:PhoneApplicationPage.ApplicationBar>
         <shell:ApplicationBar/>
     </phone:PhoneApplicationPage.ApplicationBar>
-
     <!--LayoutRoot is the root grid where all page content is placed-->
     <Grid x:Name="LayoutRoot" Background="Transparent">
-
-        <!-- LOCALIZATION NOTE:
-            To localize the displayed strings copy their values to appropriately named
-            keys in the app's neutral language resource file (AppResources.resx) then
-            replace the hard-coded text value between the attributes' quotation marks
-            with the binding clause whose path points to that string name.
-
-            For example:
-
-                Text="{Binding Path=LocalizedResources.ApplicationTitle, Source={StaticResource LocalizedStrings}}"
-
-            This binding points to the template's string resource named "ApplicationTitle".
-
-            Adding supported languages in the Project Properties tab will create a
-            new resx file per language that can carry the translated values of your
-            UI strings. The binding in these examples will cause the value of the
-            attributes to be drawn from the .resx file that matches the
-            CurrentUICulture of the app at run time.
-         -->
-
-        <!--Pivot Control-->
+       <!--Pivot Control-->
         <phone:Pivot x:Name="pivMain" Title="powershell remoting" Loaded="Pivot_Loaded">
-            <!--Pivot item one-->
+            <!--Pivot item connection-->
             <phone:PivotItem Header="connect" Margin="14,10,10,18">
                 <Grid>
                     <Grid.RowDefinitions>
@@ -52,26 +31,23 @@
                         <RowDefinition Height="70*"/>
                         <RowDefinition Height="70*"/>
                         <RowDefinition Height="70*"/>
-                        <RowDefinition Height="70*"/>
-                        <RowDefinition Height="70*"/>
-                        <RowDefinition Height="70*"/>
+                        <RowDefinition Height="75*"/>
+                        <RowDefinition Height="75*"/>
+                        <RowDefinition Height="75*"/>
                     </Grid.RowDefinitions>
                     <TextBlock x:Name="lblServer" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="66" Width="446" FontSize="35" Margin="10,0,0,0" Text="server"/>
                     <TextBox x:Name="txtServer" TextWrapping="Wrap" Height="75" VerticalAlignment="Bottom" Grid.RowSpan="2" Margin="0,0,0,5"/>
                     <TextBlock x:Name="lblPinCode" TextWrapping="Wrap" Text="pincode" FontSize="35" Grid.Row="3" Margin="10,47,-10,18" Grid.RowSpan="2"/>
                     <PasswordBox x:Name="pboxPassword" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,28,0,0" Grid.Row="4" Width="456" Grid.RowSpan="2"/>
                     <Button x:Name="btnSave" Content="save" Grid.Row="5" Grid.RowSpan="3" FontSize="25" Click="btnSave_Click" Margin="0,36,0,41"/>
-                    <Button x:Name="btnClear" Content="clear" Grid.Row="6" Grid.RowSpan="3" FontSize="25" Click="btnClear_Click"  Margin="0,41,0,39"/>
-                    <Button x:Name="btnStatus" Content="check status" Grid.Row="7" Grid.RowSpan="3" FontSize="25" Click="btnStatus_Click"  Margin="0,43,0,39"/>
-                    <TextBlock x:Name="lblStatus" Grid.Row="8" TextWrapping="Wrap" Text="" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Grid.RowSpan="2" Margin="11.913,49.992,14.107,0.004" />
-
-
+                    <Button x:Name="btnClear" Content="clear" Grid.Row="6" Grid.RowSpan="3" FontSize="25" Click="btnClear_Click"  Margin="0,40"/>
+                    <Button x:Name="btnStatus" Content="check status" Grid.Row="7" Grid.RowSpan="3" FontSize="25" Click="btnStatus_Click"  Margin="0,45,0,37"/>
+                    <TextBlock x:Name="lblStatus" Grid.Row="9" TextWrapping="Wrap" Text="" RenderTransformOrigin="0.5,0.5" Margin="12,10,14,0" />
                     <TextBlock x:Name="lblPort" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="50" Width="446" FontSize="35" Margin="10,50,0,0" Text="port" Grid.Row="1" Grid.RowSpan="2"/>
                     <TextBox x:Name="txtPort" TextWrapping="Wrap" Height="75" VerticalAlignment="Bottom" Grid.RowSpan="2" Grid.Row="2" Margin="0,0,0,10"/>
                 </Grid>
             </phone:PivotItem>
-
-            <!--Pivot item two-->
+            <!--Pivot item execute-->
             <phone:PivotItem Header="execute">
                 <Grid>
                     <Grid.RowDefinitions>
@@ -82,13 +58,12 @@
                         <RowDefinition Height="90"/>
                         <RowDefinition Height="90"/>
                         <RowDefinition Height="90*"/>
-
                     </Grid.RowDefinitions>
                     <TextBlock x:Name="lblCommand" HorizontalAlignment="Left" TextWrapping="Wrap" Text="powershell command" VerticalAlignment="Top" Margin="10,29,0,0" Grid.Row="4" Height="63" Width="436" FontSize="30" Grid.RowSpan="2"/>
                     <TextBox x:Name="txtCommand" HorizontalAlignment="Left" Height="116" Grid.Row="4" TextWrapping="Wrap" VerticalAlignment="Top" Width="456" Grid.RowSpan="3" Margin="0,66,0,0"/>
                     <Button x:Name="btnExecute" Content="execute command" Grid.Row="5" Click="btnExecute_Click" FontSize="30" Margin="0,85,0,-4" Grid.RowSpan="2"/>
                     <TextBlock x:Name="lblRemotePath" HorizontalAlignment="Left" TextWrapping="Wrap" Text="remote path" VerticalAlignment="Top" Margin="10,85,0,0" Grid.Row="1" Height="63" Width="436" FontSize="30" Grid.RowSpan="2"/>
-                    <TextBox x:Name="txtRemotePath" HorizontalAlignment="Left" Height="94" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Width="456" Margin="0,25,0,0" Grid.RowSpan="3" TextChanged="txtRemotePath_TextChanged" FontSize="20"/>
+                    <TextBox x:Name="txtRemotePath" HorizontalAlignment="Left" Height="94" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Width="456" Margin="0,25,0,0" Grid.RowSpan="3" FontSize="20"/>
                     <Button x:Name="btnSetCommands" Content="Set-Commands" HorizontalAlignment="Left" VerticalAlignment="Top" Height="75" Width="230" Margin="224,37,0,0" Grid.RowSpan="2" Click="btnSetCommands_Click"/>
                     <Button x:Name="btnGetCommands" Content="Get-Commands" HorizontalAlignment="Left" VerticalAlignment="Top" Height="75" Width="230" Margin="0,37,0,0" Grid.RowSpan="2" Click="btnGetCommands_Click"/>
                     <Button x:Name="btnGetAlias" Content="Get-Alias" HorizontalAlignment="Left" VerticalAlignment="Top" Height="75" Width="230" Margin="0,10,0,0" Grid.Row="1" Click="btnGetAlias_Click"/>
@@ -96,31 +71,16 @@
                     <TextBlock x:Name="lblhelper" HorizontalAlignment="Left" TextWrapping="Wrap" Text="helper" VerticalAlignment="Top" Margin="10,0,0,0" Height="63" Width="436" FontSize="30"/>
                     <Button x:Name="btnClearPath" Content="clear" HorizontalAlignment="Left" VerticalAlignment="Top" Height="58" Width="86" Margin="370,79,0,0" Grid.Row="1" Grid.RowSpan="2" FontSize="15" Click="btnClearPath_Click"/>
                     <Button x:Name="btnClearCommand" Content="clear" VerticalAlignment="Top" Height="58" Margin="370,29,0,0" Grid.Row="4" FontSize="15" Click="btnClearCommand_Click"/>
-
                 </Grid>
-
-
             </phone:PivotItem>
+            <!--Pivot item result-->
             <phone:PivotItem x:Name="pivResult" Header="result">
                 <Grid HorizontalAlignment="Left" Height="593" VerticalAlignment="Top" Width="456">
                     <ScrollViewer x:Name="scrvResult" HorizontalAlignment="Left" Height="593" VerticalAlignment="Stretch" Width="446">
                         <phone:WebBrowser x:Name="wbrowserResult"/>
-
-                        <!--<TextBlock x:Name="txtResult" TextWrapping="Wrap" Height="auto" />-->
-
                     </ScrollViewer>
                 </Grid>
-
             </phone:PivotItem>
         </phone:Pivot>
-
-        <!--Uncomment to see an alignment grid to help ensure your controls are
-            aligned on common boundaries.  The image has a top margin of -32px to
-            account for the System Tray. Set this to 0 (or remove the margin altogether)
-            if the System Tray is hidden.
-
-            Before shipping remove this XAML and the image itself.-->
-        <!--<Image Source="/Assets/AlignmentGrid.png" VerticalAlignment="Top" Height="800" Width="480" Margin="0,-32,0,0" Grid.Row="0" IsHitTestVisible="False" />-->
     </Grid>
-
 </phone:PhoneApplicationPage>

@@ -27,6 +27,7 @@ namespace PSRemoting_ConsoleProxy
             dataoutput.pinCode = 1234;
 
             var result = proxy.invokeCommand(dataoutput);
+            
             var data = Convert.FromBase64String(result.psResult);
             Console.WriteLine(System.Text.Encoding.UTF8.GetString(data, 0, data.Length));
             Console.WriteLine(result.statusCode);
