@@ -1,13 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
-using Microsoft.Phone.Shell;
-using PivotApp1.Resources;
 using PivotApp1.ServiceReference1;
 using System.IO.IsolatedStorage;
 using System.ServiceModel;
@@ -121,29 +114,35 @@ namespace PivotApp1
         /// <param name="e"></param>
         private void btnExecute_Click(object sender, RoutedEventArgs e)
         {
-            var proxy = new PSRemotingClient();
-            var endpointAddress = proxy.Endpoint.Address; //gets the default endpoint address
-
-            EndpointAddressBuilder newEndpointAddress = new EndpointAddressBuilder(endpointAddress);
-
-            string svcUri = "http://" + txtServer.Text + ":" + txtPort.Text + "/IPSRemotingService";
-            newEndpointAddress.Uri = new Uri(svcUri);
-            
-            proxy = new PSRemotingClient("BasicHttpBinding_IPSRemoting", newEndpointAddress.ToEndpointAddress());
-            PSRequest dataoutput = new PSRequest();
-            dataoutput.remotePath = txtRemotePath.Text;
-            dataoutput.command = txtCommand.Text;
-
-            if (dataoutput.command == "")
+            if (inputValidationBeforeConnection() && inputValidationCommand())
             {
-                dataoutput.command = "C:\\";
-            }
-            dataoutput.pinCode = Convert.ToInt32(pboxPassword.Password);
 
-            proxy.invokeCommandAsync(dataoutput);
-           
-            proxy.invokeCommandCompleted += new EventHandler<ServiceReference1.invokeCommandCompletedEventArgs>(proxy_invokeCommandCompleted);
-            btnExecute.Content = "executing ...";
+                var proxy = new PSRemotingClient(); //creates a proxy with default settings
+                var endpointAddress = proxy.Endpoint.Address; //gets the default endpoint address
+
+                EndpointAddressBuilder newEndpointAddress = new EndpointAddressBuilder(endpointAddress);
+
+                string svcUri = "http://" + txtServer.Text + ":" + txtPort.Text + "/IPSRemotingService";
+                newEndpointAddress.Uri = new Uri(svcUri);
+
+                proxy = new PSRemotingClient("BasicHttpBinding_IPSRemoting", newEndpointAddress.ToEndpointAddress());
+                PSRequest dataoutput = new PSRequest();
+                dataoutput.remotePath = txtRemotePath.Text;
+                dataoutput.command = txtCommand.Text;
+
+                if (dataoutput.remotePath == "")
+                {
+                    dataoutput.remotePath = "C:\\";
+                }
+                dataoutput.pinCode = Convert.ToInt32(pboxPassword.Password);
+
+                proxy.invokeCommandAsync(dataoutput);
+
+                proxy.invokeCommandCompleted += new EventHandler<ServiceReference1.invokeCommandCompletedEventArgs>(proxy_invokeCommandCompleted);
+                btnExecute.Content = "executing ...";
+
+            }
+            
             
         }
 
@@ -155,7 +154,7 @@ namespace PivotApp1
         private void proxy_invokeCommandCompleted(object sender, ServiceReference1.invokeCommandCompletedEventArgs e)
         {
             btnExecute.Content = "execute";
-            if (e.Result == null)
+            if (e.Error != null)
             {
                 wbrowserResult.NavigateToString("connection failed, check connection page");
             }
@@ -190,6 +189,50 @@ namespace PivotApp1
             pivMain.SelectedItem = pivResult;
             
         }
+
+        /// <summary>
+        /// Input Validation for Server, Port and Pincode
+        /// </summary>
+        /// <returns>bool</returns>
+        internal bool inputValidationBeforeConnection()
+        {
+            if (!string.IsNullOrEmpty(txtServer.Text) && !string.IsNullOrEmpty(txtPort.Text))
+            {
+                
+                if(!string.IsNullOrEmpty(pboxPassword.Password)){
+
+                    return true;
+                }else{
+                    lblStatus.Text = "no pincode set";
+                    pivMain.SelectedItem = pivConnect;
+                    return false;
+                }
+            }
+            else{
+                lblStatus.Text = "empty port or server";
+                pivMain.SelectedItem = pivConnect;
+
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// Input Validation command-field
+        /// </summary>
+        /// <returns>bool</returns>
+        internal bool inputValidationCommand()
+        {
+            if (!string.IsNullOrEmpty(txtCommand.Text))
+            {
+                return true;
+            }
+            else
+            {
+                wbrowserResult.NavigateToString("no command specified");
+                pivMain.SelectedItem = pivResult;
+                return false;
+            }
+        }
         
         /// <summary>
         /// opens a client connection to the WCF Service and execute asynchronous a status command.
@@ -199,16 +242,17 @@ namespace PivotApp1
         /// <param name="e"></param>
         private void btnStatus_Click(object sender, RoutedEventArgs e)
         {
-            if (txtServer.Text != "" && txtPort.Text != "")
+            if (inputValidationBeforeConnection())
             {
-                var proxy = new PSRemotingClient();
+                
+                var proxy = new PSRemotingClient(); //creates a proxy with default settings
                 var endpointAddress = proxy.Endpoint.Address; //gets the default endpoint address
 
                 EndpointAddressBuilder newEndpointAddress = new EndpointAddressBuilder(endpointAddress);
 
                 string svcUri = "http://" + txtServer.Text + ":" + txtPort.Text + "/IPSRemotingService";
                 newEndpointAddress.Uri = new Uri(svcUri);
-                
+
                 proxy = new PSRemotingClient("BasicHttpBinding_IPSRemoting", newEndpointAddress.ToEndpointAddress());
 
                 PSRequest dataoutput = new PSRequest();
@@ -219,12 +263,9 @@ namespace PivotApp1
                 proxy.invokeCommandAsync(dataoutput);
                 proxy.invokeCommandCompleted += new EventHandler<ServiceReference1.invokeCommandCompletedEventArgs>(proxy_invokeCommandStatusCompleted);
                 btnStatus.Content = "checking status ...";
-                               
+                                             
             }
-            else
-            {
-                lblStatus.Text = "empty port or server";
-            }
+         
         }
 
         /// <summary>
@@ -234,16 +275,18 @@ namespace PivotApp1
         /// <param name="e"></param>
         private void proxy_invokeCommandStatusCompleted(object sender, ServiceReference1.invokeCommandCompletedEventArgs e)
         {
+           
             PSResponse datainput = new PSResponse();
-            if (e.Result == null)
+            if (e.Error != null)
             {
                 lblStatus.Text = "connection failed";
                 btnStatus.Content = "check status";
+                pivMain.SelectedItem = pivConnect;
             }
             else
             {
                 datainput.statusCode = e.Result.statusCode;
-                
+
                 switch (datainput.statusCode)
                 {
                     case 0:
@@ -267,7 +310,7 @@ namespace PivotApp1
                         btnStatus.Content = "check status again";
                         break;
                 }
-            
+
             }
           
         }

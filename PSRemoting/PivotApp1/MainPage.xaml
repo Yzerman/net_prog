@@ -21,7 +21,7 @@
        <!--Pivot Control-->
         <phone:Pivot x:Name="pivMain" Title="powershell remoting" Loaded="Pivot_Loaded">
             <!--Pivot item connection-->
-            <phone:PivotItem Header="connect" Margin="14,10,10,18">
+            <phone:PivotItem Name="pivConnect" Header="connect" Margin="14,10,10,18">
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="70*"/>

@@ -128,7 +128,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="README_FIRST.txt" />
-    <None Include="ClassDiagram1.cd" />
+    <None Include="..\..\..\..\..\..\..\test\ClassDiagram1.cd">
+      <Link>ClassDiagram1.cd</Link>
+    </None>
     <None Include="Service References\ServiceReference1\IPSRemotingService.disco" />
     <None Include="Service References\ServiceReference1\configuration91.svcinfo" />
     <None Include="Service References\ServiceReference1\configuration.svcinfo" />
