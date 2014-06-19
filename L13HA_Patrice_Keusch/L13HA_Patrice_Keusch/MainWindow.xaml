@@ -1,0 +1,20 @@
+﻿<Window x:Class="L13HA_Patrice_Keusch.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="38" />
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100*"/>
+            <ColumnDefinition Width="100*"/>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="100"/>
+        </Grid.ColumnDefinitions>
+        <Button Grid.Row="0" Grid.Column="2" Content="Load" Click="Button_Click_Load" Margin="0,5,10,5" />
+        <Button Grid.Row="0" Grid.Column="3" Content="Save" Click="Button_Click_Save" Margin="0,5,10,5" />
+        <TextBox Name="text" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="4" Grid.RowSpan="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Background="LightCyan" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" AcceptsReturn="True" AcceptsTab="True" TextWrapping="WrapWithOverflow" VerticalScrollBarVisibility="Auto" />
+    </Grid>
+</Window>
