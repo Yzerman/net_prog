@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Service" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Service" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="PSRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="command" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="pinCode" type="xs:int" />
+      <xs:element minOccurs="0" name="remotePath" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PSRequest" nillable="true" type="tns:PSRequest" />
+  <xs:complexType name="PSResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="psResult" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="statusCode" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PSResponse" nillable="true" type="tns:PSResponse" />
+</xs:schema>

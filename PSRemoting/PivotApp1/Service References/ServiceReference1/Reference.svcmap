@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="8a2b2717-ee15-43e0-82cf-6bf1be41cbb8" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>true</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.ObjectModel.ObservableCollection`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>false</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://192.168.1.249:8000/IPSRemotingService" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="IPSRemotingService.wsdl" MetadataType="Wsdl" ID="b03edb8e-06ac-42b0-8b8d-c019e9274c79" SourceId="1" SourceUrl="http://192.168.1.249:8000/IPSRemotingService?wsdl=wsdl0" />
+    <MetadataFile FileName="IPSRemotingService.disco" MetadataType="Disco" ID="017cd9f1-9a2e-4ff5-ae2f-324252b58238" SourceId="1" SourceUrl="http://192.168.1.249:8000/IPSRemotingService?disco" />
+    <MetadataFile FileName="IPSRemotingService1.wsdl" MetadataType="Wsdl" ID="6e981330-84ff-4602-bc8d-0664e3a84b04" SourceId="1" SourceUrl="http://192.168.1.249:8000/IPSRemotingService?wsdl" />
+    <MetadataFile FileName="IPSRemotingService.xsd" MetadataType="Schema" ID="1c4d70b7-0e74-4a72-ae97-d99dd809c337" SourceId="1" SourceUrl="http://192.168.1.249:8000/IPSRemotingService?xsd=xsd2" />
+    <MetadataFile FileName="IPSRemotingService1.xsd" MetadataType="Schema" ID="40674da4-f31c-4492-9337-b12e48172884" SourceId="1" SourceUrl="http://192.168.1.249:8000/IPSRemotingService?xsd=xsd1" />
+    <MetadataFile FileName="IPSRemotingService2.xsd" MetadataType="Schema" ID="d80747cc-be93-4a9a-b0f0-39591963d9a5" SourceId="1" SourceUrl="http://192.168.1.249:8000/IPSRemotingService?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
