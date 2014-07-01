@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Service.PSRequest">
+    <Position X="9.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAgEQAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>service.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Service.PSResponse">
+    <Position X="9.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAACAAAAA=</HashCode>
+      <FileName>service.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Service.IPSRemotingService" BaseTypeListCollapsed="true">
+    <Position X="11.5" Y="3.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>wAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>service.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Service.WCFIPSRemotingSvc">
+    <Position X="7.75" Y="1.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAEAAAAAAAAAACAAAAAEAABAAAAAA=</HashCode>
+      <FileName>service.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Service.ProjectInstaller">
+    <Position X="6" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAEAAAAAAAAA=</HashCode>
+      <FileName>service.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="Service.IPSRemoting">
+    <Position X="11.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>service.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
