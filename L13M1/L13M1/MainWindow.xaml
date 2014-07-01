@@ -24,12 +24,12 @@
                     </TransformGroup>
                 </Label.RenderTransform>
             </Label>
-            <Button Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Height="50" RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="2" Margin="-26,14,0,0">
+            <Button Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Height="50" RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="2" Margin="-26,14,0,0" Click="Button_Click">
                 <Button.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
                         <SkewTransform/>
-                        <RotateTransform Angle="30"/>
+                        <RotateTransform Angle="{Binding ElementName=slider1, Path=Value}"/>
                         <TranslateTransform/>
                     </TransformGroup>
                 </Button.RenderTransform>
@@ -44,6 +44,7 @@
                     </TransformGroup>
                 </TextBox.RenderTransform>
             </TextBox>
+            <Slider Name="slider1" Grid.Column="1" HorizontalAlignment="Left" Margin="17,22,0,0" VerticalAlignment="Top" Width="139" Maximum="90" ValueChanged="slider1_ValueChanged"/>
         </Grid>
 
     </Grid>

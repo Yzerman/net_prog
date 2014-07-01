@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace L13M1
+namespace L14M1
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -23,16 +23,6 @@ namespace L13M1
         public MainWindow()
         {
             InitializeComponent();
-        }
-
-        private void slider1_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
-        {
-
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }
